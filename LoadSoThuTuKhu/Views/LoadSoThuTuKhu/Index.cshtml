@@ -1,0 +1,414 @@
+﻿@{
+    ViewData["NonSixOs"] = true;
+    var tenPhong = " - "; // Giá trị ban đầu (có thể trống nếu cần)
+}
+
+<!-- import bootstrap + icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+<style>
+    body {
+        background: #f5faff;
+        font-family: "Segoe UI", Arial, sans-serif;
+        margin: 0;
+        color: #003366;
+    }
+
+    img.logo {
+        filter: brightness(90%) contrast(150%);
+        border-radius: 23px;
+    }
+    /* HEADER */
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(90deg, #007acc, #005999);
+        padding: 10px 40px;
+        color: white;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        position: relative;
+        border-radius: 15px 0 0 15px;
+    }
+
+        .header img {
+            position: absolute; /* left: 30px; height: 70px; */
+            left: 0;
+            padding: 3px;
+            height: -webkit-fill-available;
+        }
+
+    .header-text {
+        text-align: center;
+    }
+
+    .hospital-name {
+        font-size: 2.2rem;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+    .area-name {
+        font-size: 1.7rem;
+        font-weight: bold;
+        margin-top: 5px;
+        color: #ffeb3b;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+    }
+    /* Icon cài đặt */
+
+    .settings-icon {
+        position: absolute;
+        right: 30px;
+        font-size: 1.8rem;
+        color: rgba(255, 255, 255, 0.6); /* trắng mờ */
+        cursor: pointer;
+        transition: color 0.3s;
+    }
+
+        .settings-icon:hover {
+            color: white;
+        }
+
+    /* DANH SÁCH PHÒNG */
+    .room-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* tối đa 2 phòng 1 hàng */
+        gap: 20px;
+        padding: 20px 30px 120px; /* chừa chỗ cho ticker + footer */
+    }
+
+    .room-name {
+        font-size: 1.8rem; /* bự hơn */
+        font-weight: bold;
+        margin-top: 3px;
+        color: #ffeb3b;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+    }
+
+    .room-card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        overflow: hidden;
+    }
+
+    .room-title {
+        background: #007acc;
+        color: white;
+        padding: 12px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .patient-list {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        .patient-list th,
+        .patient-list td {
+            padding: 14px;
+            border-bottom: 1px solid #e0e6ed;
+            font-size: 1.2rem;
+            width: 33.33%;
+            font-weight: bold;
+            text-align: center; /* căn giữa ngang */
+            vertical-align: middle; /* căn giữa dọc */
+        }
+
+        .patient-list th {
+            background: #cce7ff;
+            color: #004477;
+            text-transform: uppercase;
+        }
+
+    /* TRẠNG THÁI */
+    .status-invite {
+        color: #e60000;
+        animation: blink 1s infinite alternate;
+    }
+
+    .status-wait {
+        color: #ff8800;
+    }
+
+    .status-empty {
+        color: #009933;
+    }
+
+    @@keyframes blink {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0.4;
+        }
+    }
+
+    /* QUA LƯỢT */
+    .ticker-wrapper {
+        display: flex;
+        align-items: center;
+        background: #005999;
+        color: white;
+        position: fixed;
+        bottom: 40px;
+        width: 100%;
+        box-shadow: 0 -2px 8px rgba(0,0,0,0.2);
+        overflow: hidden;
+        z-index: 50;
+    }
+
+    .ticker-title {
+        flex: 0 0 auto;
+        background: #004477;
+        padding: 12px 18px;
+        font-size: 1.4rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        border-right: 2px solid #003366;
+    }
+
+    .ticker {
+        flex: 1;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .ticker-content {
+        display: inline-block;
+        animation: scroll-left 18s linear infinite; /* chậm lại */
+        padding-left: 100%;
+    }
+
+    .ticker-item {
+        display: inline-flex;
+        align-items: center;
+        padding: 10px 18px;
+        margin: 6px 14px; /* có khoảng hở trên dưới */
+        background: #cce7ff;
+        border-radius: 22px;
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: #004477;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.18);
+    }
+
+    /* badge hiển thị phòng đầy đủ */
+    .room-badge {
+        display: inline-block;
+        padding: 6px 14px;
+        border-radius: 16px;
+        font-weight: 800;
+        font-size: 1rem;
+        color: white;
+        text-align: center;
+        margin-right: 12px;
+        white-space: nowrap;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    .badge-1 {
+        background: #ff6b6b;
+    }
+
+    .badge-2 {
+        background: #f4b405f2;
+    }
+
+    .badge-3 {
+        background: #4caf50;
+    }
+
+    .badge-4 {
+        background: #007acc;
+    }
+
+    @@keyframes scroll-left {
+        0% {
+            transform: translateX(100%);
+        }
+
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    /* FOOTER */
+    .footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background: #003366;
+        color: #cccccc;
+        text-align: center;
+        padding: 6px 10px;
+        font-size: 1rem;
+    }
+
+    .dropdown-item .highlight {
+        background-color: yellow; /* vàng */
+        color: #000; /* chữ đen */
+        padding: 0 2px;
+    }
+    /* item mặc định */
+
+    .dropdown-item {
+        padding: 6px 12px;
+        cursor: pointer;
+        color: #000; /* chữ đen */
+    }
+        /* item đang chọn (hover hoặc active bằng phím mũi tên) */
+
+        .dropdown-item.active, .dropdown-item:hover {
+            background-color: #e6e6e6 !important; /* xám nhạt */
+            color: #000 !important; /* giữ chữ đen */
+        }
+
+    /* Responsive: mobile show 1 cột */
+    @@media (max-width: 800px) {
+        .room-container {
+            grid-template-columns: 1fr;
+            padding-bottom: 160px;
+        }
+
+        .ticker-content {
+            animation-duration: 38s;
+        }
+    }
+    /* Khi chỉ có 1 phòng thì 100% */
+    .room-card.full-width {
+        grid-column: span 2; /* chiếm cả 2 cột */
+        width: 100%;
+    }
+
+    /* Khi có 2 phòng thì mỗi cái chiếm 1 cột (giữ nguyên) */
+    .room-card.half-width {
+        grid-column: span 1;
+    }
+
+    /* Khi nhiều phòng (>=3) thì auto chia đều */
+    .room-card.auto-width {
+        grid-column: span 1;
+    }
+
+    .patient-list tr.empty-row td {
+        border-bottom: none; /* Không hiện border */
+        background: transparent; /* Nếu muốn trong suốt */
+    }
+</style>
+
+<div class="card p-1">
+    <!-- HEADER -->
+    <div class="header">
+        <img src="~/dist/img/Logo-BVUB.jpg" alt="Logo Bệnh viện" class="logo">
+        <div class="header-text">
+            <div class="hospital-name">@ViewBag.DoanhNghiep.TenCSKCB?.ToString().ToUpper()</div>
+            <div class="room-name" id="roomName" style="text-transform: uppercase !important;">
+                @(tenPhong?.ToString().ToUpper(new System.Globalization.CultureInfo("vi-VN")) ?? "")
+            </div>
+
+        </div>
+        <div class="settings-icon"
+             data-bs-toggle="modal"
+             data-bs-target="#settingsModal">
+            ⚙
+        </div>
+    </div>
+
+    <!-- DANH SÁCH 4 PHÒNG -->
+    <div class="room-container" id="roomContainer">
+        <!-- Dữ liệu phòng sẽ được tải bằng JavaScript -->
+    </div>
+
+    <!-- QUA LƯỢT -->
+    <div class="ticker-wrapper">
+        <div class="ticker-title">QUA LƯỢT</div>
+        <div class="ticker">
+            <div class="ticker-content" id="quaLuotList">
+                <!-- Dữ liệu qua lượt sẽ được tải bằng JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        © Công Ty TNHH TM DV SX Vũ Phong | Địa chỉ: 78/14 Nguyễn Thị Tú - P. Bình Hưng Hòa B - Q. Bình Tân - Tp. HCM | Hotline: 0901 878 896 | Email: sixossoft@gmail.com
+    </div>
+</div>
+
+<!-- Modal -->
+@* <!-- HTML Modal -->
+<div class="modal fade" id="settingsModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Chọn khu khám cần hiển thị</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Dropdown Phòng -->
+                <div class="mb-3">
+                    <label class="form-label">Chọn khu</label>
+                    <div class="position-relative">
+                        <input type="text" id="searchPhong" class="form-control" autocomplete="off">
+                        <input type="hidden" id="selectedPhongId" name="PhongId">
+                        <div id="dropdownPhong"
+                             class="dropdown-menu"
+                             style="display:none; position:absolute; width:100%; z-index:1055;
+                                    max-height:200px; overflow-y:auto; font-size:1rem;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                <button class="btn btn-primary" id="saveRoomBtn">Lưu</button>
+            </div>
+        </div>
+    </div>
+</div> *@
+
+<div class="modal fade" id="settingsModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Chọn khu khám cần hiển thị</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">           
+
+                <!-- Dropdown Phòng -->
+                <div class="mb-3">
+                    <label class="form-label">Chọn khu</label>
+                    <div class="position-relative">
+                        <input type="text" id="searchPhong" class="form-control" autocomplete="off">
+                        <input  type="hidden" id="selectedPhongId" name="PhongId">
+                        <div id="dropdownPhong"
+                             class="dropdown-menu"
+                             style="display:none; position:absolute; width:100%; z-index:1055;
+                                    max-height:200px; overflow-y:auto; font-size:1rem;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                <button class="btn btn-primary" id="saveRoomBtn">Lưu</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="/dist/js/BienChung.js"></script>
+    <script src="@Url.Content("~/dist/lib/Jquery/jquery.min.js")"></script>
+    <script src="@Url.Content("~/dist/lib/Jquery/jquery.inputmask.js")"></script>
+    <script src="\dist\lib\bootstrap\dist\js\bootstrap.bundle.min.js" defer></script>
+    <script src="\dist\js\LoadSoThuTuKhuJs.js" asp-append-version="true" defer></script>
+  
+
+}

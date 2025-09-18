@@ -1,0 +1,64 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Sixos\\LoadSoThuTuKhu\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E580C063-CA5B-47F5-91BD-2B1D2E9C6F6A}|LoadSoThuTuKhu\\LoadSoThuTuKhu.csproj|d:\\sixos\\loadsothutukhu\\loadsothutukhu\\views\\loadsothutukhu\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E580C063-CA5B-47F5-91BD-2B1D2E9C6F6A}|LoadSoThuTuKhu\\LoadSoThuTuKhu.csproj|solutionrelative:loadsothutukhu\\views\\loadsothutukhu\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E580C063-CA5B-47F5-91BD-2B1D2E9C6F6A}|LoadSoThuTuKhu\\LoadSoThuTuKhu.csproj|d:\\sixos\\loadsothutukhu\\loadsothutukhu\\wwwroot\\dist\\js\\loadsothutukhujs.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{E580C063-CA5B-47F5-91BD-2B1D2E9C6F6A}|LoadSoThuTuKhu\\LoadSoThuTuKhu.csproj|solutionrelative:loadsothutukhu\\wwwroot\\dist\\js\\loadsothutukhujs.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 33,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LoadSoThuTuKhuJs.js",
+              "DocumentMoniker": "D:\\Sixos\\LoadSoThuTuKhu\\LoadSoThuTuKhu\\wwwroot\\dist\\js\\LoadSoThuTuKhuJs.js",
+              "RelativeDocumentMoniker": "LoadSoThuTuKhu\\wwwroot\\dist\\js\\LoadSoThuTuKhuJs.js",
+              "ToolTip": "D:\\Sixos\\LoadSoThuTuKhu\\LoadSoThuTuKhu\\wwwroot\\dist\\js\\LoadSoThuTuKhuJs.js",
+              "RelativeToolTip": "LoadSoThuTuKhu\\wwwroot\\dist\\js\\LoadSoThuTuKhuJs.js",
+              "ViewState": "AgIAAJYBAAAAAAAAAAAAAKYBAABjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-09-18T09:22:13.13Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Sixos\\LoadSoThuTuKhu\\LoadSoThuTuKhu\\Views\\LoadSoThuTuKhu\\Index.cshtml",
+              "RelativeDocumentMoniker": "LoadSoThuTuKhu\\Views\\LoadSoThuTuKhu\\Index.cshtml",
+              "ToolTip": "D:\\Sixos\\LoadSoThuTuKhu\\LoadSoThuTuKhu\\Views\\LoadSoThuTuKhu\\Index.cshtml",
+              "RelativeToolTip": "LoadSoThuTuKhu\\Views\\LoadSoThuTuKhu\\Index.cshtml",
+              "ViewState": "AgIAAA4BAAAAAAAAAAAAACYBAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-18T09:15:17.447Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedHeight": 2,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

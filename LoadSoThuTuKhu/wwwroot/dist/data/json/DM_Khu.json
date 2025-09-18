@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "ma": "K1",
+    "ten": "Tiếp nhận, Thu ngân, Dược, 01BV",
+    "active": true,
+    "viettat": "TNTND0"
+  },
+  {
+    "id": 2,
+    "ma": "K2",
+    "ten": "Khu khám",
+    "active": true,
+    "viettat": "KK"
+  },
+  {
+    "id": 3,
+    "ma": "K3",
+    "ten": "Khu CLS",
+    "active": true,
+    "viettat": "KC"
+  },
+  {
+    "id": 4,
+    "ma": "K4",
+    "ten": "Khu XN",
+    "active": true,
+    "viettat": "KX"
+  }
+]
