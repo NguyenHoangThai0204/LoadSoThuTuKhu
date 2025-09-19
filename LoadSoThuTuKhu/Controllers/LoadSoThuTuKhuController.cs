@@ -97,35 +97,93 @@ namespace LoadSoThuTuKhu.Controllers
 
             if (!result.Success)
             {
-                return Json(new { success = false, message = result.Message, data = new List<object>() });
+                return Json(new
+                {
+                    success = false,
+                    message = result.Message,
+                    data = new List<object>(),
+                    thoiGian = 5000  // Thêm thoiGian
+                });
             }
 
-            // Ép kiểu an toàn
-            var list = result.Data as IEnumerable<LoadSoThuTuKhuModel>;
-            if (list == null)
+            // Sử dụng reflection để kiểm tra dynamic object (giống controller phòng)
+            if (result.Data != null)
             {
-                return Json(new { success = false, message = "Sai định dạng dữ liệu", data = new List<object>() });
+                var dataType = result.Data.GetType();
+                var dataProperty = dataType.GetProperty("Data");
+                var thoiGianProperty = dataType.GetProperty("ThoiGian");
+                var soDongProperty = dataType.GetProperty("SoDong"); // Vẫn check nhưng không dùng
+
+                if (dataProperty != null && thoiGianProperty != null)
+                {
+                    var dataValue = dataProperty.GetValue(result.Data);
+                    var thoiGianValue = thoiGianProperty.GetValue(result.Data);
+
+                    // Ép kiểu dataValue thành List<LoadSoThuTuKhuModel>
+                    var dataList = dataValue as IEnumerable<LoadSoThuTuKhuModel>;
+
+                    if (dataList == null)
+                    {
+                        return Json(new
+                        {
+                            success = false,
+                            message = "Sai định dạng dữ liệu",
+                            data = new List<object>(),
+                            thoiGian = 5000  // Thêm thoiGian
+                        });
+                    }
+
+                    var formattedData = dataList
+                        .Select(x => new {
+                            soThuTu = x.SoThuTu,
+                            tenBN = x.TenBN,
+                            trangThai = x.TrangThai,
+                            iDPhong = x.IDPhong,
+                            tenPhong = x.TenPhong
+                        })
+                        .ToList();
+
+                    return Json(new
+                    {
+                        success = true,
+                        message = result.Message,
+                        data = formattedData,
+                        thoiGian = thoiGianValue ?? 5000  // Trả về thoiGian từ server
+                    });
+                }
             }
 
-            var dataList = list
-            .Select(x => new {
-                soThuTu = x.SoThuTu,
-                tenBN = x.TenBN,
-                trangThai = x.TrangThai,
-                iDPhong = x.IDPhong,
-                tenPhong = x.TenPhong
-            })
-            .ToList();
+            // Fallback cho trường hợp cũ
+            var list = result.Data as IEnumerable<LoadSoThuTuKhuModel>;
+            if (list != null)
+            {
+                var dataList = list
+                    .Select(x => new {
+                        soThuTu = x.SoThuTu,
+                        tenBN = x.TenBN,
+                        trangThai = x.TrangThai,
+                        iDPhong = x.IDPhong,
+                        tenPhong = x.TenPhong
+                    })
+                    .ToList();
 
+                return Json(new
+                {
+                    success = true,
+                    message = result.Message,
+                    data = dataList,
+                    thoiGian = 5000  // Giá trị mặc định
+                });
+            }
 
             return Json(new
             {
-                success = true,
-                message = result.Message,
-                data = dataList
+                success = false,
+                message = "Sai định dạng dữ liệu",
+                data = new List<object>(),
+                thoiGian = 5000  // Thêm thoiGian
             });
         }
-
 
 
     }

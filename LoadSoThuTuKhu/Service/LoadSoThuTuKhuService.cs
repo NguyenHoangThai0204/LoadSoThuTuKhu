@@ -26,10 +26,22 @@ namespace LoadSoThuTuKhu.Service
         {
             try
             {
+                double thoiGianCapNhat = 5000;
+                try
+                {
+                    var caiDat = await _dbService.HT_CaiDatSTT
+                         .FirstOrDefaultAsync(x => x.Loai == "Khu");
 
-                //_logger.LogInformation("STT={STT}, TenBN={TenBN}",
-                //       IdKhu,
-                //       IdChiNhanh);
+                    if (caiDat != null)
+                    {
+                        thoiGianCapNhat = caiDat.ThoiGian;
+
+                    }
+                }
+                catch (Exception configEx)
+                {
+                    _logger.LogWarning(configEx, "Không thể lấy cấu hình từ HT_CaiDatSTT, sử dụng mặc định");
+                }
 
                 var allData = await _dbService.LoadSoThuTuKhuModels
                  .FromSqlRaw("EXEC LoadSoThuTuKhu @IdKhu, @IdChiNhanh",
@@ -38,15 +50,23 @@ namespace LoadSoThuTuKhu.Service
                  .AsNoTracking()
                  .ToListAsync();
 
-            
+
                 // Nếu allData rỗng, trả về trống
                 if (!allData.Any())
                 {
-                    return (true, "Không có dữ liệu", new { Paged = new List<object>(), Full = new List<object>() });
+                    return (true, "Không có dữ liệu", new
+                    {
+                        Paged = new List<object>(),
+                        Full = new List<object>(),
+                        ThoiGian = thoiGianCapNhat
+                    });
                 }
 
-
-                return (true, "Thành công", allData);
+                return (true, "Thành công", new
+                {
+                    Data = allData,
+                    ThoiGian = thoiGianCapNhat
+                });
             }
             catch (Exception ex)
             {

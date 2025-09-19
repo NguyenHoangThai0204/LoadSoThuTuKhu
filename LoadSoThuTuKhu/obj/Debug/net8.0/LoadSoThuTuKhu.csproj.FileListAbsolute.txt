@@ -93,3 +93,4 @@ D:\Sixos\LoadSoThuTuKhu\LoadSoThuTuKhu\obj\Debug\net8.0\refint\LoadSoThuTuKhu.dl
 D:\Sixos\LoadSoThuTuKhu\LoadSoThuTuKhu\obj\Debug\net8.0\LoadSoThuTuKhu.pdb
 D:\Sixos\LoadSoThuTuKhu\LoadSoThuTuKhu\obj\Debug\net8.0\LoadSoThuTuKhu.genruntimeconfig.cache
 D:\Sixos\LoadSoThuTuKhu\LoadSoThuTuKhu\obj\Debug\net8.0\ref\LoadSoThuTuKhu.dll
+D:\Sixos\LoadSoThuTuKhu\LoadSoThuTuKhu\obj\Debug\net8.0\LoadSoThuTuKhu.sourcelink.json

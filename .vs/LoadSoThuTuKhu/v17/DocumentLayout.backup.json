@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "D:\\Sixos\\LoadSoThuTuKhu\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E580C063-CA5B-47F5-91BD-2B1D2E9C6F6A}|LoadSoThuTuKhu\\LoadSoThuTuKhu.csproj|d:\\sixos\\loadsothutukhu\\loadsothutukhu\\views\\loadsothutukhu\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E580C063-CA5B-47F5-91BD-2B1D2E9C6F6A}|LoadSoThuTuKhu\\LoadSoThuTuKhu.csproj|solutionrelative:loadsothutukhu\\views\\loadsothutukhu\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{E580C063-CA5B-47F5-91BD-2B1D2E9C6F6A}|LoadSoThuTuKhu\\LoadSoThuTuKhu.csproj|d:\\sixos\\loadsothutukhu\\loadsothutukhu\\service\\loadsothutukhuservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E580C063-CA5B-47F5-91BD-2B1D2E9C6F6A}|LoadSoThuTuKhu\\LoadSoThuTuKhu.csproj|solutionrelative:loadsothutukhu\\service\\loadsothutukhuservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E580C063-CA5B-47F5-91BD-2B1D2E9C6F6A}|LoadSoThuTuKhu\\LoadSoThuTuKhu.csproj|d:\\sixos\\loadsothutukhu\\loadsothutukhu\\controllers\\loadsothutukhucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E580C063-CA5B-47F5-91BD-2B1D2E9C6F6A}|LoadSoThuTuKhu\\LoadSoThuTuKhu.csproj|solutionrelative:loadsothutukhu\\controllers\\loadsothutukhucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E580C063-CA5B-47F5-91BD-2B1D2E9C6F6A}|LoadSoThuTuKhu\\LoadSoThuTuKhu.csproj|d:\\sixos\\loadsothutukhu\\loadsothutukhu\\wwwroot\\dist\\js\\loadsothutukhujs.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
@@ -18,32 +22,45 @@
       "DocumentGroups": [
         {
           "DockedHeight": 33,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "LoadSoThuTuKhuController.cs",
+              "DocumentMoniker": "D:\\Sixos\\LoadSoThuTuKhu\\LoadSoThuTuKhu\\Controllers\\LoadSoThuTuKhuController.cs",
+              "RelativeDocumentMoniker": "LoadSoThuTuKhu\\Controllers\\LoadSoThuTuKhuController.cs",
+              "ToolTip": "D:\\Sixos\\LoadSoThuTuKhu\\LoadSoThuTuKhu\\Controllers\\LoadSoThuTuKhuController.cs",
+              "RelativeToolTip": "LoadSoThuTuKhu\\Controllers\\LoadSoThuTuKhuController.cs",
+              "ViewState": "AgIAAGsAAAAAAAAAAAAAAHEAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-19T05:06:04.633Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "LoadSoThuTuKhuJs.js",
               "DocumentMoniker": "D:\\Sixos\\LoadSoThuTuKhu\\LoadSoThuTuKhu\\wwwroot\\dist\\js\\LoadSoThuTuKhuJs.js",
               "RelativeDocumentMoniker": "LoadSoThuTuKhu\\wwwroot\\dist\\js\\LoadSoThuTuKhuJs.js",
               "ToolTip": "D:\\Sixos\\LoadSoThuTuKhu\\LoadSoThuTuKhu\\wwwroot\\dist\\js\\LoadSoThuTuKhuJs.js",
               "RelativeToolTip": "LoadSoThuTuKhu\\wwwroot\\dist\\js\\LoadSoThuTuKhuJs.js",
-              "ViewState": "AgIAAJYBAAAAAAAAAAAAAKYBAABjAAAAAAAAAA==",
+              "ViewState": "AgIAAEQBAAAAAAAAAAAAAF0BAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-09-18T09:22:13.13Z",
+              "WhenOpened": "2025-09-19T05:03:23.557Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\Sixos\\LoadSoThuTuKhu\\LoadSoThuTuKhu\\Views\\LoadSoThuTuKhu\\Index.cshtml",
-              "RelativeDocumentMoniker": "LoadSoThuTuKhu\\Views\\LoadSoThuTuKhu\\Index.cshtml",
-              "ToolTip": "D:\\Sixos\\LoadSoThuTuKhu\\LoadSoThuTuKhu\\Views\\LoadSoThuTuKhu\\Index.cshtml",
-              "RelativeToolTip": "LoadSoThuTuKhu\\Views\\LoadSoThuTuKhu\\Index.cshtml",
-              "ViewState": "AgIAAA4BAAAAAAAAAAAAACYBAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-18T09:15:17.447Z",
+              "Title": "LoadSoThuTuKhuService.cs",
+              "DocumentMoniker": "D:\\Sixos\\LoadSoThuTuKhu\\LoadSoThuTuKhu\\Service\\LoadSoThuTuKhuService.cs",
+              "RelativeDocumentMoniker": "LoadSoThuTuKhu\\Service\\LoadSoThuTuKhuService.cs",
+              "ToolTip": "D:\\Sixos\\LoadSoThuTuKhu\\LoadSoThuTuKhu\\Service\\LoadSoThuTuKhuService.cs",
+              "RelativeToolTip": "LoadSoThuTuKhu\\Service\\LoadSoThuTuKhuService.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAqwCQAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-19T04:59:46.951Z",
               "EditorCaption": ""
             }
           ]

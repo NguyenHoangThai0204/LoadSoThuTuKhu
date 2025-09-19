@@ -9,5 +9,10 @@
         public long IDPhong { get; set; }
 
     }
-
+    public class HT_CaiDatSTT
+    {
+        public string Loai { get; set; }
+        public int? SoDong { get; set; }
+        public int ThoiGian { get; set; }
+    }
 }
