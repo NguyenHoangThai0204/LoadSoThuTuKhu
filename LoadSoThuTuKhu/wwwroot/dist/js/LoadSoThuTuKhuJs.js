@@ -657,14 +657,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+// ===== BACKSPACE TRÊN INPUT PHÒNG =====
+// THAY THẾ sự kiện Backspace cuối file bằng:
 document.getElementById("searchPhong").addEventListener("keydown", function (e) {
     if (e.key === "Backspace") {
-        // Xóa input và hidden field
-        this.value = "";
-        document.getElementById("selectedPhongId").value = "";
+        // Chỉ xử lý khi input rỗng hoặc có giá trị selected
+        if (this.value === "" || $("#selectedPhongId").val()) {
+            e.preventDefault();
+            this.value = "";
+            $("#selectedPhongId").val("");
 
-        // Trigger sự kiện input để dropdown hiển thị lại tất cả danh sách
-        const event = new Event('input', { bubbles: true });
-        this.dispatchEvent(event);
+            // Trigger sự kiện input để render lại dropdown
+            const event = new Event('input', { bubbles: true });
+            this.dispatchEvent(event);
+        }
     }
 });
