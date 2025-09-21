@@ -72,7 +72,6 @@
 
     /* DANH SÁCH PHÒNG */
     .room-container {
-        display: grid;
         grid-template-columns: repeat(2, 1fr); /* tối đa 2 phòng 1 hàng */
         gap: 20px;
         padding: 20px 30px 120px; /* chừa chỗ cho ticker + footer */
@@ -102,6 +101,16 @@
         text-align: center;
     }
 
+    .khu-name {
+        font-family: "Segoe UI", Arial, sans-serif;
+        margin: 0;
+        color: #003366;
+        padding: 12px;
+        font-size: 1.8rem;
+        font-weight: bold;
+        text-align: center;
+    }
+
     .patient-list {
         width: 100%;
         border-collapse: collapse;
@@ -126,12 +135,13 @@
 
     /* TRẠNG THÁI */
     .status-invite {
-        color: #e60000;
         animation: blink 1s infinite alternate;
+        color: #e60000;
     }
 
     .status-wait {
         color: #ff8800;
+        animation: blink 1s infinite alternate;
     }
 
     .status-empty {
@@ -152,14 +162,14 @@
     .ticker-wrapper {
         display: flex;
         align-items: center;
-        background: #005999;
+        background: #005999; /* xanh dương đậm */
         color: white;
         position: fixed;
-        bottom: 40px;
-        width: 100%;
+        bottom: 60px; /* chừa chỗ cho footer */
+        width: 102%;
+        left: -3px;
         box-shadow: 0 -2px 8px rgba(0,0,0,0.2);
-        overflow: hidden;
-        z-index: 50;
+        overflow: hidden; /* Quan trọng: ẩn nội dung tràn */
     }
 
     .ticker-title {
@@ -180,7 +190,7 @@
 
     .ticker-content {
         display: inline-block;
-        animation: scroll-left 18s linear infinite; /* chậm lại */
+        animation: scroll-left 15s linear infinite; /* chậm lại */
         padding-left: 100%;
     }
 
@@ -238,15 +248,18 @@
     }
 
     /* FOOTER */
+
     .footer {
         position: fixed;
         bottom: 0;
         width: 100%;
+        left: 0;
         background: #003366;
-        color: #cccccc;
+        color: #cccccc; /* chữ chìm */
         text-align: center;
         padding: 6px 10px;
-        font-size: 1rem;
+        font-size: 1.4rem; /* nhỏ hơn */
+        font-weight: normal;
     }
 
     .dropdown-item .highlight {
@@ -267,6 +280,16 @@
             background-color: #e6e6e6 !important; /* xám nhạt */
             color: #000 !important; /* giữ chữ đen */
         }
+
+    @@keyframes blink {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0.4;
+        }
+    }
 
     /* Responsive: mobile show 1 cột */
     @@media (max-width: 800px) {
@@ -299,6 +322,41 @@
         border-bottom: none; /* Không hiện border */
         background: transparent; /* Nếu muốn trong suốt */
     }
+
+    .queue-columns {
+        display: flex;
+        gap: 20px;
+    }
+
+    .queue-col {
+        flex: 1;
+    }
+
+    .queue-table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: center;
+    }
+
+        .queue-table th,
+        .queue-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            font-size: 2.4rem;
+        }
+
+    .stt-kham {
+        font-size: 3rem;
+        font-weight: bold;
+        color: red;
+        animation: blink 1s infinite alternate;
+    }
+
+    .stt-chuanbi {
+        font-size: 2.5rem;
+        font-weight: bold;
+    }
+
 </style>
 
 <div class="card p-1">
@@ -340,37 +398,6 @@
     </div>
 </div>
 
-<!-- Modal -->
-@* <!-- HTML Modal -->
-<div class="modal fade" id="settingsModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Chọn khu khám cần hiển thị</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-                <!-- Dropdown Phòng -->
-                <div class="mb-3">
-                    <label class="form-label">Chọn khu</label>
-                    <div class="position-relative">
-                        <input type="text" id="searchPhong" class="form-control" autocomplete="off">
-                        <input type="hidden" id="selectedPhongId" name="PhongId">
-                        <div id="dropdownPhong"
-                             class="dropdown-menu"
-                             style="display:none; position:absolute; width:100%; z-index:1055;
-                                    max-height:200px; overflow-y:auto; font-size:1rem;">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                <button class="btn btn-primary" id="saveRoomBtn">Lưu</button>
-            </div>
-        </div>
-    </div>
-</div> *@
 
 <div class="modal fade" id="settingsModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">

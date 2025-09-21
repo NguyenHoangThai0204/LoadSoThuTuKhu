@@ -137,6 +137,7 @@ namespace LoadSoThuTuKhu.Controllers
                         .Select(x => new {
                             soThuTu = x.SoThuTu,
                             tenBN = x.TenBN,
+                            maPhong = x.MaPhong,
                             trangThai = x.TrangThai,
                             iDPhong = x.IDPhong,
                             tenPhong = x.TenPhong
@@ -161,6 +162,7 @@ namespace LoadSoThuTuKhu.Controllers
                     .Select(x => new {
                         soThuTu = x.SoThuTu,
                         tenBN = x.TenBN,
+                        maPhong = x.MaPhong,
                         trangThai = x.TrangThai,
                         iDPhong = x.IDPhong,
                         tenPhong = x.TenPhong

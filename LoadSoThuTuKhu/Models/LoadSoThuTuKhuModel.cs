@@ -8,6 +8,8 @@
         public string TenPhong { get; set; }
         public long IDPhong { get; set; }
 
+        public string MaPhong { get; set; }
+
     }
     public class HT_CaiDatSTT
     {
