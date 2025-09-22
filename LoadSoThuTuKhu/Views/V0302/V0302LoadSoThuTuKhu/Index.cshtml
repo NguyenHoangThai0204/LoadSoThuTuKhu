@@ -1,0 +1,84 @@
+﻿@{
+    ViewData["NonSixOs"] = true;
+    var tenPhong = " - "; 
+    Layout = null;
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/dist/css/CSS0302/CSS0302LoadThuTuKhu.css" />
+
+<script src="@Url.Content("~/dist/lib/Jquery/jquery.min.js")"></script>
+<script src="@Url.Content("~/dist/lib/Jquery/jquery.inputmask.js")"></script>
+<script src="@Url.Content("~/dist/lib/bootstrap/dist/js/bootstrap.bundle.min.js")"></script>
+<script src="@Url.Content("~/dist/js/BienChung.js")"></script>
+<script src="@Url.Content("~/dist/js/J0302/J0302LoadSoThuTuKhuJs.js")" asp-append-version="true"></script>
+
+<div class="card p-1">
+    <!-- HEADER -->
+    <div class="header">
+        <img src="~/dist/img/Logo-BVUB.jpg" alt="Logo Bệnh viện" class="logo">
+        <div class="header-text">
+            <div class="hospital-name">@ViewBag.DoanhNghiep.TenCSKCB?.ToString().ToUpper()</div>
+            <div class="room-name" id="roomName" style="text-transform: uppercase !important;">
+                @(tenPhong?.ToString().ToUpper(new System.Globalization.CultureInfo("vi-VN")) ?? "")
+            </div>
+
+        </div>
+        <div class="settings-icon"
+             data-bs-toggle="modal"
+             data-bs-target="#settingsModal">
+            ⚙
+        </div>
+    </div>
+
+    <div class="room-container" id="roomContainer">
+    </div>
+
+    <div class="ticker-wrapper">
+        <div class="ticker-title">QUA LƯỢT</div>
+        <div class="ticker">
+            <div class="ticker-content" id="quaLuotList">
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        © Công Ty TNHH TM DV SX Vũ Phong | Địa chỉ: 78/14 Nguyễn Thị Tú - P. Bình Hưng Hòa B - Q. Bình Tân - Tp. HCM | Hotline: 0901 878 896 | Email: sixossoft@gmail.com
+    </div>
+</div>
+
+
+<div class="modal fade" id="settingsModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Chọn khu khám cần hiển thị</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">           
+
+                <div class="mb-3">
+                    <label class="form-label">Chọn khu</label>
+                    <div class="position-relative">
+                        <input type="text" id="searchPhong" class="form-control" autocomplete="off">
+                        <input  type="hidden" id="selectedPhongId" name="PhongId">
+                        <div id="dropdownPhong"
+                             class="dropdown-menu"
+                             style="display:none; position:absolute; width:100%; z-index:1055;
+                                    max-height:200px; overflow-y:auto; font-size:1rem;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                <button class="btn btn-primary" id="saveRoomBtn">Lưu</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

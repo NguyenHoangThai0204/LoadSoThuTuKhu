@@ -3,9 +3,9 @@ using LoadSoThuTuKhu.Service.IS;
 using System.Globalization;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
-using LoadSoThuTuKhu.Models;
 using Microsoft.EntityFrameworkCore; // THÊM DÒNG NÀY
-using Microsoft.AspNetCore.Http; // THÊM DÒNG NÀY
+using Microsoft.AspNetCore.Http;
+using LoadSoThuTuKhu.Models.M0302; // THÊM DÒNG NÀY
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,7 +30,7 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
 });
 
-builder.Services.AddScoped<LoadSoThuTuKhuInterface, LoadSoThuTuKhuService>();
+builder.Services.AddScoped<IS0302LoadSoThuTuKhuInterface, S0302LoadSoThuTuKhuService>();
 
 builder.Services.AddControllers()
     .AddJsonOptions(options =>

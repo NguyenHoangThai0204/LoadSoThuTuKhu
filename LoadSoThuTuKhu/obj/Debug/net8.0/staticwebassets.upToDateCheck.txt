@@ -1,6 +1,5 @@
 wwwroot\dist\css\bootstrap.min.css
-wwwroot\dist\css\CSS0302\CSS0302Styles.css
-wwwroot\dist\css\CSS0302\CSS0302StylesReport2.css
+wwwroot\dist\css\CSS0302\CSS0302LoadThuTuKhu.css
 wwwroot\dist\css\Custom.css
 wwwroot\dist\css\demo.css
 wwwroot\dist\css\demo.min.css
@@ -36,7 +35,7 @@ wwwroot\dist\data\json\DM_NhomDichVuKyThuat.json
 wwwroot\dist\data\json\DM_PhongBuong.json
 wwwroot\dist\img\Logo-BVUB.jpg
 wwwroot\dist\js\BienChung.js
-wwwroot\dist\js\LoadSoThuTuKhuJs.js
+wwwroot\dist\js\J0302\J0302LoadSoThuTuKhuJs.js
 wwwroot\dist\lib\apexcharts\dist\apexcharts.amd.js
 wwwroot\dist\lib\apexcharts\dist\apexcharts.common.js
 wwwroot\dist\lib\apexcharts\dist\apexcharts.css
