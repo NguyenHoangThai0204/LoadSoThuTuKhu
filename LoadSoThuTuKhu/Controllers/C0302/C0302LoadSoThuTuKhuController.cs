@@ -1,5 +1,5 @@
 ﻿using LoadSoThuTuKhu.Models.M0302;
-using LoadSoThuTuKhu.Service.IS;
+using LoadSoThuTuKhu.Service.S0302.IS0302;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Text.RegularExpressions;

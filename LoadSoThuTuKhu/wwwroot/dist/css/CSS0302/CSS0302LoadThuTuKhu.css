@@ -222,7 +222,7 @@ img.logo {
 
 .ticker-content {
     display: inline-block;
-    animation: scroll-left 13s linear infinite; /* chậm lại */
+    animation: scroll-left 12s linear infinite; /* chậm lại */
     padding-left: 35%;
 }
 

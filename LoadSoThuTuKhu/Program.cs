@@ -1,11 +1,11 @@
-﻿using LoadSoThuTuKhu.Service;
-using LoadSoThuTuKhu.Service.IS;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
 using Microsoft.EntityFrameworkCore; // THÊM DÒNG NÀY
 using Microsoft.AspNetCore.Http;
-using LoadSoThuTuKhu.Models.M0302; // THÊM DÒNG NÀY
+using LoadSoThuTuKhu.Models.M0302;
+using LoadSoThuTuKhu.Service.S0302;
+using LoadSoThuTuKhu.Service.S0302.IS0302; // THÊM DÒNG NÀY
 
 var builder = WebApplication.CreateBuilder(args);
 
