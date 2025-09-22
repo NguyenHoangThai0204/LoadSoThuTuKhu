@@ -135,17 +135,15 @@
 
     /* TRẠNG THÁI */
     .status-invite {
-        animation: blink 1s infinite alternate;
-        color: #e60000;
+        color: #338BB9;
     }
 
     .status-wait {
-        color: #ff8800;
-        animation: blink 1s infinite alternate;
+        color: #338BB9;
     }
 
     .status-empty {
-        color: #009933;
+        color: #338BB9;
     }
 
     @@keyframes blink {
@@ -166,7 +164,7 @@
         color: white;
         position: fixed;
         bottom: 60px; /* chừa chỗ cho footer */
-        width: 102%;
+        width: 100%;
         left: -3px;
         box-shadow: 0 -2px 8px rgba(0,0,0,0.2);
         overflow: hidden; /* Quan trọng: ẩn nội dung tràn */
@@ -188,11 +186,7 @@
         white-space: nowrap;
     }
 
-    .ticker-content {
-        display: inline-block;
-        animation: scroll-left 15s linear infinite; /* chậm lại */
-        padding-left: 100%;
-    }
+
 
     .ticker-item {
         display: inline-flex;
@@ -201,7 +195,7 @@
         margin: 6px 14px; /* có khoảng hở trên dưới */
         background: #cce7ff;
         border-radius: 22px;
-        font-size: 1.15rem;
+        font-size: 1.5rem;
         font-weight: 700;
         color: #004477;
         box-shadow: 0 3px 6px rgba(0,0,0,0.18);
@@ -213,9 +207,10 @@
         padding: 6px 14px;
         border-radius: 16px;
         font-weight: 800;
-        font-size: 1rem;
-        color: white;
+        font-size: 1.5rem;
+        color: #3691BA;
         text-align: center;
+        background: #ECF3FB;
         margin-right: 12px;
         white-space: nowrap;
         box-shadow: 0 2px 6px rgba(0,0,0,0.15);
@@ -237,6 +232,11 @@
         background: #007acc;
     }
 
+    .ticker-content {
+        display: inline-block;
+        animation: scroll-left 13s linear infinite; /* chậm lại */
+        padding-left: 35%;
+    }
     @@keyframes scroll-left {
         0% {
             transform: translateX(100%);
@@ -258,7 +258,7 @@
         color: #cccccc; /* chữ chìm */
         text-align: center;
         padding: 6px 10px;
-        font-size: 1.4rem; /* nhỏ hơn */
+        font-size: 1.2rem; /* nhỏ hơn */
         font-weight: normal;
     }
 
@@ -342,18 +342,18 @@
         .queue-table td {
             border: 1px solid #ddd;
             padding: 8px;
+            height: 100px;
             font-size: 2.4rem;
         }
 
     .stt-kham {
-        font-size: 3rem;
+        font-size: 4rem;
         font-weight: bold;
         color: red;
-        animation: blink 1s infinite alternate;
     }
 
     .stt-chuanbi {
-        font-size: 2.5rem;
+        font-size: 4rem;
         font-weight: bold;
     }
 
