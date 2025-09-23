@@ -270,11 +270,13 @@ function initSearchDropdown({ inputId, dropdownId, hiddenFieldId, data = [], onS
 document.addEventListener("DOMContentLoaded", function () {
     $.getJSON("dist/data/json/DM_Khu.json")
         .done(function (dataKhu) {
-            const listKhu = dataKhu.map(n => ({
-                ...n,
-                alias: n.viettat?.trim() !== "" ? n.viettat.toUpperCase() :
-                    n.ten.trim().split(/\s+/).map(w => w.charAt(0).toUpperCase()).join("")
-            }));
+            const listKhu = dataKhu
+                .filter(n => n.active === true || n.active === 1) // chỉ lấy khu active
+                .map(n => ({
+                    ...n,
+                    alias: n.viettat?.trim() !== "" ? n.viettat.toUpperCase() :
+                        n.ten.trim().split(/\s+/).map(w => w.charAt(0).toUpperCase()).join("")
+                }));
 
             // Khởi tạo dropdown khu
             const khuDropdown = initSearchDropdown({

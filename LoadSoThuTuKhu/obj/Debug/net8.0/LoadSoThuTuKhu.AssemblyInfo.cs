@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LoadSoThuTuKhu")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f4b2737f9e82aaa1e4100d53e32d52af41f19405")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+968e609c489667540c2a68c9c8c05131b0826175")]
 [assembly: System.Reflection.AssemblyProductAttribute("LoadSoThuTuKhu")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LoadSoThuTuKhu")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

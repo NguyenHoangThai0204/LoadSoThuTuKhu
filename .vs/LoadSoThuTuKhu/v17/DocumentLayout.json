@@ -1,53 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\Sixos\\LoadSoThuTuKhu\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{E580C063-CA5B-47F5-91BD-2B1D2E9C6F6A}|LoadSoThuTuKhu\\LoadSoThuTuKhu.csproj|d:\\sixos\\loadsothutukhu\\loadsothutukhu\\views\\v0302\\v0302loadsothutukhu\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E580C063-CA5B-47F5-91BD-2B1D2E9C6F6A}|LoadSoThuTuKhu\\LoadSoThuTuKhu.csproj|solutionrelative:loadsothutukhu\\views\\v0302\\v0302loadsothutukhu\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E580C063-CA5B-47F5-91BD-2B1D2E9C6F6A}|LoadSoThuTuKhu\\LoadSoThuTuKhu.csproj|d:\\sixos\\loadsothutukhu\\loadsothutukhu\\wwwroot\\dist\\js\\j0302\\j0302loadsothutukhujs.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{E580C063-CA5B-47F5-91BD-2B1D2E9C6F6A}|LoadSoThuTuKhu\\LoadSoThuTuKhu.csproj|solutionrelative:loadsothutukhu\\wwwroot\\dist\\js\\j0302\\j0302loadsothutukhujs.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 1,
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
-        {
-          "DockedHeight": 33,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\Sixos\\LoadSoThuTuKhu\\LoadSoThuTuKhu\\Views\\V0302\\V0302LoadSoThuTuKhu\\Index.cshtml",
-              "RelativeDocumentMoniker": "LoadSoThuTuKhu\\Views\\V0302\\V0302LoadSoThuTuKhu\\Index.cshtml",
-              "ToolTip": "D:\\Sixos\\LoadSoThuTuKhu\\LoadSoThuTuKhu\\Views\\V0302\\V0302LoadSoThuTuKhu\\Index.cshtml",
-              "RelativeToolTip": "LoadSoThuTuKhu\\Views\\V0302\\V0302LoadSoThuTuKhu\\Index.cshtml",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAADUAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-23T02:43:45.826Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "J0302LoadSoThuTuKhuJs.js",
-              "DocumentMoniker": "D:\\Sixos\\LoadSoThuTuKhu\\LoadSoThuTuKhu\\wwwroot\\dist\\js\\J0302\\J0302LoadSoThuTuKhuJs.js",
-              "RelativeDocumentMoniker": "LoadSoThuTuKhu\\wwwroot\\dist\\js\\J0302\\J0302LoadSoThuTuKhuJs.js",
-              "ToolTip": "D:\\Sixos\\LoadSoThuTuKhu\\LoadSoThuTuKhu\\wwwroot\\dist\\js\\J0302\\J0302LoadSoThuTuKhuJs.js",
-              "RelativeToolTip": "LoadSoThuTuKhu\\wwwroot\\dist\\js\\J0302\\J0302LoadSoThuTuKhuJs.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-09-23T02:41:07.461Z",
-              "EditorCaption": ""
-            }
-          ]
-        },
         {
           "DockedHeight": 2,
           "SelectedChildIndex": -1,

@@ -29,7 +29,6 @@ wwwroot\dist\css\tom-select.css
 wwwroot\dist\css\treeview.css
 wwwroot\dist\data\json\DM_DichVuKyThuat.json
 wwwroot\dist\data\json\DM_Khoa.json
-wwwroot\dist\data\json\DM_Khu.json
 wwwroot\dist\data\json\DM_LoaiThuThuatPhauThuat.json
 wwwroot\dist\data\json\DM_NhomDichVuKyThuat.json
 wwwroot\dist\data\json\DM_PhongBuong.json
@@ -1048,3 +1047,4 @@ wwwroot\dist\lib\tom-select\dist\js\tom-select.popular.js.map
 wwwroot\dist\lib\tom-select\dist\js\tom-select.popular.min.js
 wwwroot\dist\lib\tom-select\dist\js\tom-select.popular.min.js.map
 wwwroot\favicon.ico
+wwwroot\dist\data\json\DM_Khu.json
