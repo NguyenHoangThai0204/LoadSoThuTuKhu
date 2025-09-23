@@ -174,17 +174,20 @@ function initSearchDropdown({ inputId, dropdownId, hiddenFieldId, data = [], onS
             (x.alias && x.alias.toLowerCase().includes(keyword.toLowerCase()))
         );
 
-        if (!filtered.length) { $dropdown.hide(); return; }
+        if (!filtered.length) {
+            $dropdown.hide();
+            return;
+        }
 
         filtered.forEach((x, idx) => {
             const nameHtml = highlightMatch(x.ten, keyword);
             const aliasHtml = x.viettat ? highlightMatch(x.viettat, keyword) : "";
             const html = `
-            <div class="d-flex justify-content-between align-items-center">
-                <span class="name">${nameHtml}</span>
-                ${aliasHtml ? `<span class="alias text-muted">[${aliasHtml}]</span>` : ""}
-            </div>
-        `;
+                <div class="d-flex justify-content-between align-items-center">
+                    <span class="name">${nameHtml}</span>
+                    ${aliasHtml ? `<span class="alias text-muted">[${aliasHtml}]</span>` : ""}
+                </div>
+            `;
             const $item = $(`<div class="dropdown-item" data-id="${x.id}">${html}</div>`);
             $item.on("click", () => selectItem(x));
             $dropdown.append($item);
@@ -203,18 +206,15 @@ function initSearchDropdown({ inputId, dropdownId, hiddenFieldId, data = [], onS
                 activeIndex = idx;
                 $items[idx].scrollIntoView({ block: "nearest" });
             } else if ($items.length > 0) {
-                // fallback: chọn dòng đầu
                 $items.removeClass("active").first().addClass("active");
                 activeIndex = 0;
                 $items[0].scrollIntoView({ block: "nearest" });
             }
         } else if ($items.length > 0) {
-            // chưa có hidden, chọn dòng đầu
             $items.first().addClass("active");
             activeIndex = 0;
             $items[0].scrollIntoView({ block: "nearest" });
         }
-
     }
 
     function selectItem(item) {
@@ -248,17 +248,15 @@ function initSearchDropdown({ inputId, dropdownId, hiddenFieldId, data = [], onS
                 const chosen = currentData.find(x => x.id === id);
                 if (chosen) selectItem(chosen);
 
-                // THÊM: Gọi sự kiện lưu khi nhấn Enter
-                $("#saveRoomBtn").click();
+                // ❌ KHÔNG gọi save ở đây
             }
         }
-
     });
 
-
     $(document).on("click", e => {
-        if (!$(e.target).closest("#" + inputId).length && !$(e.target).closest("#" + dropdownId).length)
+        if (!$(e.target).closest("#" + inputId).length && !$(e.target).closest("#" + dropdownId).length) {
             $dropdown.hide();
+        }
     });
 
     return {
@@ -285,17 +283,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 hiddenFieldId: "selectedPhongId",
                 data: listKhu,
                 onSelect: ({ id }) => {
-                    const khu = listKhu.find(k => k.id === parseInt(id, 10));
-                    if (khu) {
-                        $("#roomName").text(khu.ten);
-                    }
-                }
-            });
-
-            // THÊM: Cho phép nhấn Enter trong input để lưu
-            $("#searchPhong").on("keydown", function (e) {
-                if (e.key === "Enter") {
-                    $("#saveRoomBtn").click();
+                    // chỉ gán tạm, chưa cập nhật roomName
+                    console.log("Đã chọn khu ID:", id);
                 }
             });
 
@@ -310,7 +299,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         currentInterval = null;
                     }
                     if (khuId && window._idcn) {
-                        // Gọi hàm loadSTT với khuId thay vì phongId
+                        // Gọi hàm loadSTT với khuId
                         loadSTT(khuId, window._idcn);
                     }
                 }
@@ -320,7 +309,6 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .fail(function (jqxhr, textStatus, error) {
             console.error("Lỗi khi load DM_Khu.json:", textStatus, error);
-            // Hiển thị thông báo lỗi cho người dùng
             alert("Không thể tải danh sách khu. Vui lòng thử lại sau.");
         });
 
@@ -335,19 +323,35 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // ===== BACKSPACE TRÊN INPUT PHÒNG =====
-
 document.addEventListener("DOMContentLoaded", () => {
     const searchInput = document.getElementById("searchPhong");
     const hiddenPhong = document.getElementById("selectedPhongId");
 
-    if (searchInput) {
-        searchInput.addEventListener("keydown", function (e) {
-            if (e.key === "Backspace") {
-                e.preventDefault();  // chặn xoá từng ký tự mặc định
-                this.value = "";     // xoá hết input
-                hiddenPhong.value = "";  // clear hidden
+    if (!searchInput) return;
+
+    searchInput.addEventListener("keydown", function (e) {
+        if (e.key === "Backspace") {
+
+            const hasSelectedItem = hiddenPhong && hiddenPhong.value;
+            const isSearching = this.value && !hasSelectedItem;
+
+            if (hasSelectedItem) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                this.value = "";
+                hiddenPhong.value = "";
                 this.dispatchEvent(new Event("input", { bubbles: true }));
+
+                console.log("Đã chọn item - xóa toàn bộ");
+            } else if (isSearching) {
+                console.log("Đang tìm kiếm - backspace bình thường");
+            } else {
+                e.preventDefault();
+                this.value = "";
+                if (hiddenPhong) hiddenPhong.value = "";
+                console.log("Input rỗng - clear all");
             }
-        });
-    }
+        }
+    });
 });
