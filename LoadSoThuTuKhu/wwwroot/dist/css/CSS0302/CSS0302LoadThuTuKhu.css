@@ -338,3 +338,23 @@ img.logo {
     font-size: 4rem;
     font-weight: bold;
 }
+
+#btnFullscreen {
+    position: absolute;
+    right: 0;
+    top: -5px;
+    font-size: 2.1rem;
+    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    transition: color 0.3s;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+    #btnFullscreen:hover {
+        color: #fff;
+    }
+.tom-select-test .ts-control {
+    padding-right: 2rem !important; /* chừa chỗ cho mũi tên */
+}
